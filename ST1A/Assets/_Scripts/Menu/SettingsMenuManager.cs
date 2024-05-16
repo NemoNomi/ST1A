@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// The SettingsMenuManager handles the display and interaction with the settings menu,
@@ -37,19 +38,6 @@ public class SettingsMenuManager : MonoBehaviour
         {
             Debug.LogError("AudioManager instance not found.");
         }
-
-        // Add click event to the settings button image
-        if (settingsButtonImage != null)
-        {
-            EventTrigger trigger = settingsButtonImage.gameObject.AddComponent<EventTrigger>();
-
-            EventTrigger.Entry entry = new EventTrigger.Entry
-            {
-                eventID = EventTriggerType.PointerClick // Set the event to pointer click
-            };
-            entry.callback.AddListener((data) => { PauseGame(); }); // Link the event to PauseGame method
-            trigger.triggers.Add(entry); // Add the trigger to the image
-        }
     }
     #endregion
 
@@ -60,7 +48,19 @@ public class SettingsMenuManager : MonoBehaviour
     }
     #endregion
 
-    #region Game Pause/Resume
+    #region Game Pause/Resume/Restart
+    public void TogglePauseResume()
+    {
+        if (isPaused)
+        {
+            ResumeGame(); // Resume the game if it is currently paused
+        }
+        else
+        {
+            PauseGame(); // Pause the game if it is currently running
+        }
+    }
+
     private void PauseGame()
     {
         isPaused = true; // Set the game status to paused
@@ -85,6 +85,12 @@ public class SettingsMenuManager : MonoBehaviour
         {
             audioManager.PlayCloseMenuSound();
         }
+    }
+
+    public void RestartScene()
+    {
+        // Get the currently active scene and reload it
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public bool IsGamePaused()
@@ -140,6 +146,11 @@ public class SettingsMenuManager : MonoBehaviour
     public void OnResumePress()
     {
         ResumeGame(); // Handle resume button press
+    }
+
+    public void OnRestartPress()
+    {
+        RestartScene(); // Handle restart button press
     }
 
     public void OnAudioSettingsBackPress()
