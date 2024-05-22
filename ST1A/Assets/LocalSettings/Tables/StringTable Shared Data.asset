@@ -67,6 +67,10 @@ MonoBehaviour:
     m_Key: SettingsCanva_Back
     m_Metadata:
       m_Items: []
+  - m_Id: 2452869205204992
+    m_Key: NPCInstancesErrorMessage
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
