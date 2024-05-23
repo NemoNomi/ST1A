@@ -19,17 +19,15 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 31191474176
-    m_Localized: 'Platzhalter 1
-
-'
+    m_Localized: Klima
     m_Metadata:
       m_Items: []
   - m_Id: 50554363977728
-    m_Localized: Platzhalter 2
+    m_Localized: Finanzen
     m_Metadata:
       m_Items: []
   - m_Id: 50599888953344
-    m_Localized: Platzhalter 3
+    m_Localized: Gesellschaft
     m_Metadata:
       m_Items: []
   - m_Id: 50667824095232

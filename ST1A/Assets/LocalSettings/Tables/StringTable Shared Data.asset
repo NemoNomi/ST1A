@@ -16,15 +16,15 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 36922b349f1ad254890f807fe1c982bf
   m_Entries:
   - m_Id: 31191474176
-    m_Key: Placeholder 1
+    m_Key: GameplayUIClimate
     m_Metadata:
       m_Items: []
   - m_Id: 50554363977728
-    m_Key: Placeholder 2
+    m_Key: GameplayUIFinances
     m_Metadata:
       m_Items: []
   - m_Id: 50599888953344
-    m_Key: Placeholder 3
+    m_Key: GameplayUISociety
     m_Metadata:
       m_Items: []
   - m_Id: 50667824095232
