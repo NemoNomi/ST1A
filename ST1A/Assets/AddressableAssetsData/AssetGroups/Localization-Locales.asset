@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Localization-Locales
   m_Data:
     m_SerializedData: []
-  m_GUID: 5be6e5fe9a92ef041bbb2fd68f5f2d43
+  m_GUID: d7642031d5aa14436888dc7941b4f449
   m_SerializeEntries:
   - m_GUID: 5c9ebb8c9b4d0d7468b3c69de32e18e2
     m_Address: German (Germany) (de-DE)

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-Shared
   m_Data:
     m_SerializedData: []
-  m_GUID: d7fe1711d23b6cf4ab9c04da0c87b492
+  m_GUID: 77f1e4e063f804fd590289f19b5b7e58
   m_SerializeEntries:
   - m_GUID: 36922b349f1ad254890f807fe1c982bf
     m_Address: Assets/LocalSettings/Tables/StringTable Shared Data.asset

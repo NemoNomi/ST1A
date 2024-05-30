@@ -36790,13 +36790,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcDataArray:
-  - npcPrefab: {fileID: 1389762346299015944, guid: 9ffda00e6d1eb6e4886c1b7e347991f5, type: 3}
+  - npcPrefab: {fileID: 1129678654276435690, guid: 39d7291811db84da395e856b1a92642f, type: 3}
     spawnPosition: {fileID: 3453148699366168508}
     targetPosition: {fileID: 334118087}
-  - npcPrefab: {fileID: 7313990058086624546, guid: d6a05b461f538734bb39279968b4f4e7, type: 3}
+  - npcPrefab: {fileID: 4126284984181621285, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
     spawnPosition: {fileID: 3453148699366168508}
     targetPosition: {fileID: 775958898}
-  - npcPrefab: {fileID: 953354416276797404, guid: 244c38ade9d1a5649938a005fb993f8d, type: 3}
+  - npcPrefab: {fileID: 8260078449797538265, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
     spawnPosition: {fileID: 3453148699366168508}
     targetPosition: {fileID: 44229433}
 --- !u!4 &2044737272
