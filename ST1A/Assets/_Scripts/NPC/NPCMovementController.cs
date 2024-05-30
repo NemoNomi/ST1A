@@ -9,6 +9,20 @@ public class NPCMovementController : MonoBehaviour
     #region Fields
     // Reference to the movement controller implementing the IMovementController interface
     private IMovementController _movementController;
+
+    // Reference to the target position
+    private Vector3 _targetPosition;
+
+    // Reference to the Canvas to activate
+    [SerializeField]
+    private Canvas _targetCanvas;
+
+    // Tolerance to determine if the NPC has reached the target position
+    [SerializeField]
+    private float _targetTolerance = 0.1f;
+
+    // Flag to track if movement has started
+    private bool _isMoving = false;
     #endregion
 
     #region Unity Methods
@@ -23,6 +37,35 @@ public class NPCMovementController : MonoBehaviour
         {
             Debug.LogError("IMovementController component is missing on the NPC.");
         }
+
+        // Ensure the Canvas is initially inactive
+        if (_targetCanvas != null)
+        {
+            _targetCanvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Target Canvas is not assigned.");
+        }
+    }
+
+    void Update()
+    {
+        if (_isMoving && _movementController != null)
+        {
+            // Check if the NPC has reached the target position
+            if (Vector3.Distance(transform.position, _targetPosition) <= _targetTolerance)
+            {
+                // Stop the movement
+                _isMoving = false;
+
+                // Activate the target Canvas
+                if (_targetCanvas != null)
+                {
+                    _targetCanvas.gameObject.SetActive(true);
+                }
+            }
+        }
     }
     #endregion
 
@@ -34,6 +77,12 @@ public class NPCMovementController : MonoBehaviour
     {
         if (_movementController != null)
         {
+            // Set the target position
+            _targetPosition = targetPosition;
+
+            // Start the movement
+            _isMoving = true;
+
             // Move the NPC to the target position
             _movementController.MoveTo(targetPosition);
         }
