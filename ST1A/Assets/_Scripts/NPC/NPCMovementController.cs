@@ -23,6 +23,10 @@ public class NPCMovementController : MonoBehaviour
 
     // Flag to track if movement has started
     private bool _isMoving = false;
+
+    // Reference to the Animator component
+    private Animator _animator;
+
     #endregion
 
     #region Unity Methods
@@ -47,6 +51,13 @@ public class NPCMovementController : MonoBehaviour
         {
             Debug.LogError("Target Canvas is not assigned.");
         }
+
+        // Get the Animator component
+        _animator = GetComponent<Animator>();
+        if (_animator == null)
+        {
+            Debug.LogError("Animator component is missing on the NPC.");
+        }
     }
 
     void Update()
@@ -63,6 +74,12 @@ public class NPCMovementController : MonoBehaviour
                 if (_targetCanvas != null)
                 {
                     _targetCanvas.gameObject.SetActive(true);
+                }
+
+                // Set the Animator parameter to Idle
+                if (_animator != null)
+                {
+                    _animator.SetBool("isWalking", false);
                 }
             }
         }
@@ -85,6 +102,12 @@ public class NPCMovementController : MonoBehaviour
 
             // Move the NPC to the target position
             _movementController.MoveTo(targetPosition);
+
+            // Set the Animator parameter to Walking
+            if (_animator != null)
+            {
+                _animator.SetBool("isWalking", true);
+            }
         }
     }
     #endregion
