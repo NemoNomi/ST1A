@@ -13,7 +13,7 @@ public class UICanvasToggleHandler : MonoBehaviour
 
     [Tooltip("The Canvas object to be activated/deactivated")]
     public GameObject canvas; // The Canvas object to be activated/deactivated
-    
+
     [Tooltip("Reference to the click action from the Input Action Asset")]
     public InputActionReference clickActionReference; // Reference to the click action from the Input Action Asset
 
@@ -78,6 +78,15 @@ public class UICanvasToggleHandler : MonoBehaviour
     #endregion
 
     #region Helper Methods
+
+    /// <summary>
+    /// Sets the target canvas to be activated/deactivated.
+    /// </summary>
+    /// <param name="targetCanvas">The Canvas object to be activated/deactivated.</param>
+    public void SetTargetCanvas(GameObject targetCanvas)
+    {
+        canvas = targetCanvas;
+    }
 
     /// <summary>
     /// Checks if the pointer is currently over a UI element.

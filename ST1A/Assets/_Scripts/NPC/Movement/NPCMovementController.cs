@@ -27,6 +27,13 @@ public class NPCMovementController : MonoBehaviour
     // Reference to the Animator component
     private Animator _animator;
 
+    // Reference to the Main Camera
+    private Camera _mainCamera;
+
+    // Rotation speed
+    [SerializeField]
+    private float rotationSpeed = 2.0f;
+
     #endregion
 
     #region Unity Methods
@@ -58,6 +65,13 @@ public class NPCMovementController : MonoBehaviour
         {
             Debug.LogError("Animator component is missing on the NPC.");
         }
+
+        // Get the Main Camera
+        _mainCamera = Camera.main;
+        if (_mainCamera == null)
+        {
+            Debug.LogError("Main Camera is not found.");
+        }
     }
 
     void Update()
@@ -83,6 +97,27 @@ public class NPCMovementController : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            // Smoothly rotate towards the camera when not moving
+            LookAtCamera();
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (_animator != null)
+        {
+            // Check if the NPC is moving and update the animator
+            if (_isMoving)
+            {
+                _animator.SetBool("isWalking", true);
+            }
+            else
+            {
+                _animator.SetBool("isWalking", false);
+            }
+        }
     }
     #endregion
 
@@ -102,12 +137,22 @@ public class NPCMovementController : MonoBehaviour
 
             // Move the NPC to the target position
             _movementController.MoveTo(targetPosition);
+        }
+    }
+    #endregion
 
-            // Set the Animator parameter to Walking
-            if (_animator != null)
-            {
-                _animator.SetBool("isWalking", true);
-            }
+    #region Private Methods
+    /// <summary>
+    /// Makes the NPC look at the camera.
+    /// </summary>
+    private void LookAtCamera()
+    {
+        if (_mainCamera != null)
+        {
+            Vector3 direction = (_mainCamera.transform.position - transform.position).normalized;
+            direction.y = 0;  // Keep the NPC upright
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
         }
     }
     #endregion
