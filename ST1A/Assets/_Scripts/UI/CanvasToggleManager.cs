@@ -1,70 +1,67 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
-using System.Collections.Generic;
+using UnityEngine.UI;
 
-public class NPCTargetCanvasHandler : MonoBehaviour
+/// <summary>
+/// Manages the activation and deactivation of a target canvas through button clicks.
+/// </summary>
+public class CanvasToggleManager : MonoBehaviour
 {
-    public GameObject targetCanvas; // The Canvas object to be activated/deactivated
-    public InputActionReference clickActionReference; // Reference to the click action from the Input Action Asset
+    // The canvas to be activated/deactivated
+    public Canvas targetCanvas;
 
-    private void OnEnable()
+    /// <summary>
+    /// Initializes the button and sets up the click event listener.
+    /// </summary>
+    private void Start()
     {
-        clickActionReference.action.performed += OnClickPerformed;
-        clickActionReference.action.Enable();
-    }
+        // Get the Button component attached to this GameObject
+        Button button = GetComponent<Button>();
 
-    private void OnDisable()
-    {
-        clickActionReference.action.performed -= OnClickPerformed;
-        clickActionReference.action.Disable();
-    }
-
-    private void OnClickPerformed(InputAction.CallbackContext context)
-    {
-        if (context.phase != InputActionPhase.Performed)
+        // If no Button component is found, log an error and exit
+        if (button == null)
+        {
+            Debug.LogError("No Button component found on this GameObject.");
             return;
-
-        Vector2 pointerPosition = Pointer.current.position.ReadValue();
-
-        // Check if the pointer is over a UI element
-        if (IsPointerOverUI(pointerPosition))
-        {
-            // Raycast to check if the UI element is over an NPC's head
-            Ray ray = Camera.main.ScreenPointToRay(pointerPosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                // Check if the hit object is this NPC's UI element
-                if (hit.transform == transform)
-                {
-                    // Toggle the target canvas
-                    targetCanvas.SetActive(!targetCanvas.activeSelf);
-                    return;
-                }
-            }
         }
 
-        // Deactivate the canvas if active and clicked outside the object
-        if (targetCanvas.activeSelf)
+        // Add the OnButtonClick method as a listener for the button's click event
+        button.onClick.AddListener(OnButtonClick);
+    }
+
+    /// <summary>
+    /// Activates the target canvas when the button is clicked.
+    /// </summary>
+    private void OnButtonClick()
+    {
+        // Check if the target canvas is assigned
+        if (targetCanvas != null)
         {
-            targetCanvas.SetActive(false);
+            // Activate the target canvas
+            targetCanvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            // Log an error if the target canvas is not assigned
+            Debug.LogError("Target Canvas is not assigned.");
         }
     }
 
-    public void SetTargetCanvas(GameObject newTargetCanvas)
+    /// <summary>
+    /// Toggles the active state of the target canvas.
+    /// </summary>
+    public void ToggleCanvas()
     {
-        targetCanvas = newTargetCanvas;
-    }
-
-    private bool IsPointerOverUI(Vector2 pointerPosition)
-    {
-        PointerEventData eventData = new PointerEventData(EventSystem.current)
+        // Check if the target canvas is assigned
+        if (targetCanvas != null)
         {
-            position = pointerPosition
-        };
-
-        var results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, results);
-        return results.Count > 0;
+            // Toggle the active state of the target canvas
+            bool isActive = targetCanvas.gameObject.activeSelf;
+            targetCanvas.gameObject.SetActive(!isActive);
+        }
+        else
+        {
+            // Log an error if the target canvas is not assigned
+            Debug.LogError("Target Canvas is not assigned.");
+        }
     }
 }
