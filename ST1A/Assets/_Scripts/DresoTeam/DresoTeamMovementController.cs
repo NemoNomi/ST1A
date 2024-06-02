@@ -4,30 +4,20 @@ using UnityEngine.AI;
 public class DresoTeamMovementController : MonoBehaviour
 {
     #region Fields
-    // Reference to the NavMeshAgent component
-    private NavMeshAgent _navMeshAgent;
-
-    // Reference to the target position
-    private Vector3 _targetPosition;
-
-    // Tolerance to determine if the agent has reached the target position
+    private NavMeshAgent _navMeshAgent;  // Reference to the NavMeshAgent component
+    private Vector3 _targetPosition;  // Reference to the target position
     [SerializeField]
-    private float _targetTolerance = 0.1f;
-
-    // Flag to track if movement has started
-    private bool _isMoving = false;
-
-    // Reference to the Animator component
-    private Animator _animator;
-
-    // Event to notify when the agent reaches the target
-    public event System.Action OnTargetReached;
+    private float _targetTolerance = 0.1f;  // Tolerance to determine if the agent has reached the target position
+    private bool _isMoving = false;  // Flag to track if movement has started
+    private Animator _animator;  // Reference to the Animator component
+    private Camera _mainCamera;  // Reference to the Main Camera
+    [SerializeField]
+    private float rotationSpeed = 2.0f;  // Rotation speed
+    private bool _shouldLookAtCamera = false;  // Flag to indicate if the agent should look at the camera
+    public event System.Action OnTargetReached;  // Event to notify when the agent reaches the target
     #endregion
 
     #region Unity Methods
-    /// <summary>
-    /// Initializes the movement controller.
-    /// </summary>
     void Awake()
     {
         // Get the NavMeshAgent component attached to this GameObject
@@ -42,6 +32,13 @@ public class DresoTeamMovementController : MonoBehaviour
         if (_animator == null)
         {
             Debug.LogError("Animator component is missing on the Dreso Team member.");
+        }
+
+        // Get the Main Camera
+        _mainCamera = Camera.main;
+        if (_mainCamera == null)
+        {
+            Debug.LogError("Main Camera is not found.");
         }
     }
 
@@ -65,17 +62,22 @@ public class DresoTeamMovementController : MonoBehaviour
                     {
                         _animator.SetBool("isWalking", false);
                     }
+
+                    // Enable camera look
+                    _shouldLookAtCamera = true;
                 }
             }
         }
-    }
 
+        // Rotate towards the camera if needed
+        if (_shouldLookAtCamera)
+        {
+            LookAtCamera();
+        }
+    }
     #endregion
 
     #region Public Methods
-    /// <summary>
-    /// Moves the agent to the specified target position using the NavMeshAgent.
-    /// </summary>
     public void MoveTo(Vector3 targetPosition)
     {
         if (_navMeshAgent != null)
@@ -94,6 +96,22 @@ public class DresoTeamMovementController : MonoBehaviour
             {
                 _animator.SetBool("isWalking", true);
             }
+
+            // Disable camera look while moving
+            _shouldLookAtCamera = false;
+        }
+    }
+    #endregion
+
+    #region Private Methods
+    private void LookAtCamera()
+    {
+        if (_mainCamera != null)
+        {
+            Vector3 direction = (_mainCamera.transform.position - transform.position).normalized;
+            direction.y = 0;  // Keep the NPC upright
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
         }
     }
     #endregion
