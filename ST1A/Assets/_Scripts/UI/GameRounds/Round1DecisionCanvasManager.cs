@@ -97,4 +97,14 @@ public class Round1DecisionCanvasManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         decisionCanvas.gameObject.SetActive(true);
     }
+
+    /// <summary>
+    /// Disables all NPC speech bubble buttons.
+    /// </summary>
+    public void DisableNpcSpeechBubbleButtons()
+    {
+        npcSpeechBubbleButton1.gameObject.SetActive(false);
+        npcSpeechBubbleButton2.gameObject.SetActive(false);
+        npcSpeechBubbleButton3.gameObject.SetActive(false);
+    }
 }

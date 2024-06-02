@@ -49,8 +49,8 @@ public class DresoTeamMovementController : MonoBehaviour
     {
         if (_isMoving && _navMeshAgent != null)
         {
-            // Check if the agent has reached the target position
-            if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+            // Check if the agent has reached the target position within the tolerance
+            if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance <= _targetTolerance)
             {
                 if (!_navMeshAgent.hasPath || _navMeshAgent.velocity.sqrMagnitude == 0f)
                 {

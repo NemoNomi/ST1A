@@ -2803,7 +2803,7 @@ GameObject:
   - component: {fileID: 126641433}
   - component: {fileID: 126641432}
   m_Layer: 5
-  m_Name: Clima
+  m_Name: ButtonRound1DecisionClimate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5361,7 +5361,7 @@ GameObject:
   - component: {fileID: 278362433}
   - component: {fileID: 278362432}
   m_Layer: 5
-  m_Name: Finance
+  m_Name: ButtonRound1DecisionFinance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13518,6 +13518,7 @@ GameObject:
   - component: {fileID: 580167676}
   - component: {fileID: 580167677}
   - component: {fileID: 580167678}
+  - component: {fileID: 580167679}
   m_Layer: 0
   m_Name: Round1Manager
   m_TagString: Untagged
@@ -13578,6 +13579,23 @@ MonoBehaviour:
   npcSpeechBubbleButton3: {fileID: 474031255}
   decisionCanvas: {fileID: 1991683862}
   activationDelay: 1
+--- !u!114 &580167679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580167675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84ed886839d34a49a2d41b29bfedccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decisionButtons:
+  - {fileID: 278362432}
+  - {fileID: 2135008464}
+  - {fileID: 126641432}
+  round1DecisionCanvasManager: {fileID: 580167678}
 --- !u!1 &586041412
 GameObject:
   m_ObjectHideFlags: 0
@@ -19698,7 +19716,7 @@ Animator:
   m_GameObject: {fileID: 894633247}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46d12610d97134a2dbead7e8425274da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -20365,7 +20383,7 @@ Animator:
   m_GameObject: {fileID: 927088205}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 063d0976cce1646e99407e71396f175b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -43131,7 +43149,7 @@ Animator:
   m_GameObject: {fileID: 1905516203}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed32b2c18f233489b8c5eec297579f64, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -48160,7 +48178,7 @@ GameObject:
   - component: {fileID: 2135008465}
   - component: {fileID: 2135008464}
   m_Layer: 5
-  m_Name: Civilian
+  m_Name: ButtonRound1DecisionCivilian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
