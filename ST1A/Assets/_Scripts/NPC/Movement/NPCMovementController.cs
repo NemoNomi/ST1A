@@ -34,6 +34,10 @@ public class NPCMovementController : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 2.0f;
 
+    // NPC Index to identify which NPC this is
+    [SerializeField]
+    private int npcIndex;
+
     #endregion
 
     #region Unity Methods
@@ -83,6 +87,9 @@ public class NPCMovementController : MonoBehaviour
             {
                 // Stop the movement
                 _isMoving = false;
+
+                // Notify the TutorialManager that the NPC has reached the target
+                TutorialManager.Instance.OnNPCReachedTarget(npcIndex);
 
                 // Activate the target Canvas
                 if (_targetCanvas != null)

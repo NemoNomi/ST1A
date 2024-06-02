@@ -11,6 +11,10 @@ public class TutorialManager : MonoBehaviour
     public Button npcButton2;
     public Button npcButton3;
 
+    [Header("Panels")]
+    public GameObject firstPanel;
+    public GameObject secondPanel;
+
     [Header("Other Settings")]
     [Tooltip("The speech bubble button of the first NPC")]
     public Button firstNpcSpeechBubbleButton;
@@ -19,6 +23,9 @@ public class TutorialManager : MonoBehaviour
     public GameObject arrow;
 
     private NPCMovementManager npcMovementManager;
+    private bool firstNpcReached = false;
+    private bool secondNpcReached = false;
+    private bool thirdNpcReached = false;
 
     private void Awake()
     {
@@ -48,13 +55,17 @@ public class TutorialManager : MonoBehaviour
         arrow.SetActive(false);
 
         firstNpcSpeechBubbleButton.onClick.AddListener(OnFirstNpcSpeechBubbleClicked);
+
+        // Initially deactivate the panels
+        firstPanel.SetActive(false);
+        secondPanel.SetActive(false);
     }
 
     private void SetButtonInteractable(Button button, bool isInteractable)
     {
         button.interactable = isInteractable;
         ColorBlock colors = button.colors;
-        colors.disabledColor = new Color(0.78f, 0.78f, 0.78f);
+        colors.disabledColor = new Color(0.78f, 0.78f, 0.78f); // Customize this color if needed
         button.colors = colors;
     }
 
@@ -75,6 +86,10 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("First NPC's speech bubble clicked, other buttons enabled.");
 
         firstNpcSpeechBubbleButton.onClick.RemoveListener(OnFirstNpcSpeechBubbleClicked);
+
+        // Deactivate the first panel and activate the second panel
+        firstPanel.SetActive(false);
+        secondPanel.SetActive(true);
     }
 
     public void OnNPCButtonClicked(int npcIndex)
@@ -91,7 +106,6 @@ public class TutorialManager : MonoBehaviour
             npcMovementManager.MoveNPC(npcIndex);
             Debug.Log($"NPC {npcIndex} should be moving.");
 
-            // Play button animation
             Button clickedButton = null;
             switch (npcIndex)
             {
@@ -107,20 +121,47 @@ public class TutorialManager : MonoBehaviour
             }
             if (clickedButton != null)
             {
-                // Set the animator bool to start the animation
                 Animator animator = clickedButton.GetComponent<Animator>();
                 if (animator != null)
                 {
                     animator.SetBool("IsClicked", true);
                 }
 
-                // Disable the button after the animation duration
-                StartCoroutine(DisableButtonAfterAnimation(clickedButton, 0.5f)); 
+                StartCoroutine(DisableButtonAfterAnimation(clickedButton, 0.5f));
+
+                if (npcIndex == 0 && !firstNpcReached)
+                {
+                    // Mark that the first NPC is being moved
+                    firstNpcReached = true;
+                }
             }
         }
         else
         {
             Debug.LogError("NPCMovementManager is not assigned.");
+        }
+    }
+
+    public void OnNPCReachedTarget(int npcIndex)
+    {
+        switch (npcIndex)
+        {
+            case 0:
+                firstNpcReached = true;
+                firstPanel.SetActive(true);
+                break;
+            case 1:
+                secondNpcReached = true;
+                break;
+            case 2:
+                thirdNpcReached = true;
+                break;
+        }
+
+        // Deactivate the second panel if both second and third NPCs have reached their targets
+        if (secondNpcReached && thirdNpcReached)
+        {
+            secondPanel.SetActive(false);
         }
     }
 

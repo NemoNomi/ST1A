@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 774910630770278126}
   - component: {fileID: 5364437958830237082}
   m_Layer: 0
-  m_Name: CanvasPopup
+  m_Name: CanvasClimatePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 8405849229989911976}
   - component: {fileID: 8457613386998321108}
   m_Layer: 0
-  m_Name: ImagePopup
+  m_Name: ImageClimatePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,6 +379,7 @@ MonoBehaviour:
   _targetCanvas: {fileID: 7848727238642916698}
   _targetTolerance: 0.1
   rotationSpeed: 190
+  npcIndex: 0
 --- !u!114 &2090925808085235406
 MonoBehaviour:
   m_ObjectHideFlags: 0
