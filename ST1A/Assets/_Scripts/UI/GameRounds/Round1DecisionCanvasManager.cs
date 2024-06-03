@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 /// <summary>
-/// Manages the activation of a decision canvas in round 1 after the speech bubble buttons above three NPCs have been clicked.
+/// Manages the activation of decision and satisfaction canvases in round 1 after the speech bubble buttons above three NPCs have been clicked.
 /// </summary>
 public class Round1DecisionCanvasManager : MonoBehaviour
 {
@@ -21,9 +21,14 @@ public class Round1DecisionCanvasManager : MonoBehaviour
     [Tooltip("The decision canvas to be activated after a delay")]
     public Canvas decisionCanvas;
 
+    [Header("Satisfaction Canvas to be activated after a delay")]
+    // The satisfaction canvas to be activated after a delay
+    [Tooltip("The satisfaction canvas to be activated after a delay")]
+    public Canvas satisfactionCanvas;
+
     [Header("Activation Settings")]
-    // Delay before activating the decision canvas (in seconds)
-    [Tooltip("Delay in seconds before the decision canvas is activated")]
+    // Delay before activating the canvases (in seconds)
+    [Tooltip("Delay in seconds before the canvases are activated")]
     public float activationDelay = 5.0f;
 
     // Flags to monitor button clicks
@@ -41,8 +46,9 @@ public class Round1DecisionCanvasManager : MonoBehaviour
         npcSpeechBubbleButton2.onClick.AddListener(() => OnButtonClick(2));
         npcSpeechBubbleButton3.onClick.AddListener(() => OnButtonClick(3));
 
-        // Ensure the decision canvas is deactivated at the start
+        // Ensure the canvases are deactivated at the start
         decisionCanvas.gameObject.SetActive(false);
+        satisfactionCanvas.gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -84,18 +90,19 @@ public class Round1DecisionCanvasManager : MonoBehaviour
     {
         if (button1Clicked && button2Clicked && button3Clicked)
         {
-            StartCoroutine(ActivateDecisionCanvasAfterDelay(activationDelay));
+            StartCoroutine(ActivateCanvasesAfterDelay(activationDelay));
         }
     }
 
     /// <summary>
-    /// Coroutine to activate the decision canvas after a delay.
+    /// Coroutine to activate the canvases after a delay.
     /// </summary>
     /// <param name="delay">The delay in seconds.</param>
-    private IEnumerator ActivateDecisionCanvasAfterDelay(float delay)
+    private IEnumerator ActivateCanvasesAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         decisionCanvas.gameObject.SetActive(true);
+        satisfactionCanvas.gameObject.SetActive(true);
     }
 
     /// <summary>

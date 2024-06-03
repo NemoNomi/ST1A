@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Round1DecisionButtonHandler : MonoBehaviour
 {
+    // Disables the NPC speech bubbles when any of the Decision Buttons is clicked in round 1
     [Tooltip("Buttons to proceed to round 2")]
     public Button[] decisionButtons; // Array of decision buttons
 
