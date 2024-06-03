@@ -11,9 +11,9 @@ public class TutorialManager : MonoBehaviour
     public Button npcButton2;
     public Button npcButton3;
 
-    [Header("Panels")]
-    public GameObject firstPanel;
-    public GameObject secondPanel;
+    [Header("Task Panels")]
+    public GameObject task2;
+    public GameObject task3;
 
     [Header("Other Settings")]
     [Tooltip("The speech bubble button of the first NPC")]
@@ -61,8 +61,8 @@ public class TutorialManager : MonoBehaviour
         firstNpcSpeechBubbleButton.onClick.AddListener(OnFirstNpcSpeechBubbleClicked);
 
         // Initially deactivate the panels
-        firstPanel.SetActive(false);
-        secondPanel.SetActive(false);
+        task2.SetActive(false);
+        task3.SetActive(false);
     }
 
     private void SetButtonInteractable(Button button, bool isInteractable)
@@ -91,9 +91,9 @@ public class TutorialManager : MonoBehaviour
 
         firstNpcSpeechBubbleButton.onClick.RemoveListener(OnFirstNpcSpeechBubbleClicked);
 
-        // Deactivate the first panel and activate the second panel
-        firstPanel.SetActive(false);
-        secondPanel.SetActive(true);
+        // Deactivate the second panel and activate the third panel
+        task2.SetActive(false);
+        task3.SetActive(true);
     }
 
     public void OnNPCButtonClicked(int npcIndex)
@@ -152,7 +152,7 @@ public class TutorialManager : MonoBehaviour
         {
             case 0:
                 firstNpcReached = true;
-                firstPanel.SetActive(true);
+                task2.SetActive(true);
                 break;
             case 1:
                 secondNpcReached = true;
@@ -162,10 +162,10 @@ public class TutorialManager : MonoBehaviour
                 break;
         }
 
-        // Deactivate the second panel if both second and third NPCs have reached their targets
+        // Deactivate the third panel if both second and third NPCs have reached their targets
         if (secondNpcReached && thirdNpcReached)
         {
-            secondPanel.SetActive(false);
+            task3.SetActive(false);
         }
     }
 

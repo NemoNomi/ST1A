@@ -17,6 +17,10 @@ public class NPCMovementController : MonoBehaviour
     [SerializeField]
     private Canvas _targetCanvas;
 
+    // Reference to the CanvasManagerIntro to manage panels
+    [SerializeField]
+    private CanvasManagerIntro _canvasManagerIntro;
+
     // Tolerance to determine if the NPC has reached the target position
     [SerializeField]
     private float _targetTolerance = 0.1f;
@@ -76,6 +80,12 @@ public class NPCMovementController : MonoBehaviour
         {
             Debug.LogError("Main Camera is not found.");
         }
+
+        // Get the CanvasManagerIntro component
+        if (_canvasManagerIntro == null)
+        {
+            Debug.LogError("CanvasManagerIntro component is not assigned.");
+        }
     }
 
     void Update()
@@ -95,6 +105,12 @@ public class NPCMovementController : MonoBehaviour
                 if (_targetCanvas != null)
                 {
                     _targetCanvas.gameObject.SetActive(true);
+                }
+
+                // Deactivate the tutorial panel
+                if (_canvasManagerIntro != null)
+                {
+                    _canvasManagerIntro.DeactivateTutorialPanel();
                 }
 
                 // Set the Animator parameter to Idle
