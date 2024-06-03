@@ -22,6 +22,10 @@ public class TutorialManager : MonoBehaviour
     [Tooltip("Arrow GameObject pointing to the first button")]
     public GameObject arrow;
 
+    [Header("Color Settings")]
+    [Tooltip("The color of the button when it is disabled")]
+    public Color disabledColor = new Color(0.78f, 0.78f, 0.78f);
+
     private NPCMovementManager npcMovementManager;
     private bool firstNpcReached = false;
     private bool secondNpcReached = false;
@@ -65,7 +69,7 @@ public class TutorialManager : MonoBehaviour
     {
         button.interactable = isInteractable;
         ColorBlock colors = button.colors;
-        colors.disabledColor = new Color(0.78f, 0.78f, 0.78f); // Customize this color if needed
+        colors.disabledColor = disabledColor;
         button.colors = colors;
     }
 
