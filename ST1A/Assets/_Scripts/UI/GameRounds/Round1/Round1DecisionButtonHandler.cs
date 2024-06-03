@@ -8,7 +8,7 @@ public class Round1DecisionButtonHandler : MonoBehaviour
     public Button[] decisionButtons; // Array of decision buttons
 
     [Tooltip("Round 1 Decision Canvas Manager")]
-    public Round1DecisionCanvasManager round1DecisionCanvasManager;
+    public Round1DecisionPanelManager round1DecisionPanelManager;
 
     private void Start()
     {
@@ -22,6 +22,6 @@ public class Round1DecisionButtonHandler : MonoBehaviour
     private void OnDecisionButtonClicked()
     {
         // Disable the NPC speech bubble buttons
-        round1DecisionCanvasManager.DisableNpcSpeechBubbleButtons();
+        round1DecisionPanelManager.DisableNpcSpeechBubbleButtons();
     }
 }
