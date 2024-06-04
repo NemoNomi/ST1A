@@ -15,6 +15,9 @@ public class Round1DecisionPanelManager : MonoBehaviour
     [Header("Satisfaction Canvas to be activated after a delay")]
     public Canvas satisfactionCanvas;
 
+    [Header("Additional Elements to Deactivate")]
+    public GameObject[] additionalElementsToDeactivate;
+
     [Header("Activation Settings")]
     public float activationDelay = 5.0f;
 
@@ -71,8 +74,21 @@ public class Round1DecisionPanelManager : MonoBehaviour
     private IEnumerator ActivatePanelsAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
+
+        // Activate decision panel and satisfaction canvas
         decisionPanel.SetActive(true);
         satisfactionCanvas.gameObject.SetActive(true);
+
+        // Deactivate NPC speech bubble buttons
+        npcSpeechBubbleButton1.gameObject.SetActive(false);
+        npcSpeechBubbleButton2.gameObject.SetActive(false);
+        npcSpeechBubbleButton3.gameObject.SetActive(false);
+
+        // Deactivate additional elements
+        foreach (GameObject element in additionalElementsToDeactivate)
+        {
+            element.SetActive(false);
+        }
     }
 
     public void DisableNpcSpeechBubbleButtons()
