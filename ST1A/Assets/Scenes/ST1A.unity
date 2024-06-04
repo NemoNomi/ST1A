@@ -1401,7 +1401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3605222728402786463, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.482
+      value: 10.211999
       objectReference: {fileID: 0}
     - target: {fileID: 3605222728402786463, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1449,11 +1449,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2c0d544cbf429b94a8d00adaa99770b1, type: 3}
     - target: {fileID: 8320548159706194747, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8320548159706194747, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8320548159706194747, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1465,15 +1465,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8320548159706194747, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DisableNpcSpeechBubbleButtons
+      value: DisableNpcSpeechBubbleButton
       objectReference: {fileID: 0}
     - target: {fileID: 8320548159706194747, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Round1DecisionPanelManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8320548159706194747, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 733287800}
+    - target: {fileID: 8320548159706194747, guid: 9c8a37f7162fc458baf35e7c36abc9b9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.UI.Button, UnityEngine.UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1729,7 +1733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &73976867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4997,7 +5001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fddcc8da1474ad84781a29ab11bfbe6b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.63
+      value: 12.36
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fddcc8da1474ad84781a29ab11bfbe6b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10664,7 +10668,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 56}
+  m_AnchoredPosition: {x: -0.4, y: 56}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &441385497
@@ -10724,7 +10728,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -2
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -10750,7 +10754,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 58.83981, y: 0, z: 0, w: 18.721817}
+  m_margin: {x: 58.83981, y: 0, z: 55.92176, w: 18.721817}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11576,7 +11580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 353176795669636176, guid: 39d7291811db84da395e856b1a92642f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.834183
+      value: 9.95
       objectReference: {fileID: 0}
     - target: {fileID: 353176795669636176, guid: 39d7291811db84da395e856b1a92642f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11614,6 +11618,38 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 1d1227047bda0fc44881daa12ab81469, type: 3}
+    - target: {fileID: 8405849229989911976, guid: 39d7291811db84da395e856b1a92642f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405849229989911976, guid: 39d7291811db84da395e856b1a92642f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405849229989911976, guid: 39d7291811db84da395e856b1a92642f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 580167681}
+    - target: {fileID: 8405849229989911976, guid: 39d7291811db84da395e856b1a92642f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405849229989911976, guid: 39d7291811db84da395e856b1a92642f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableNpcSpeechBubbleButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405849229989911976, guid: 39d7291811db84da395e856b1a92642f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Round1DecisionPanelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405849229989911976, guid: 39d7291811db84da395e856b1a92642f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 849654047}
+    - target: {fileID: 8405849229989911976, guid: 39d7291811db84da395e856b1a92642f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Button, UnityEngine.UI
+      objectReference: {fileID: 0}
     - target: {fileID: 8457613386998321108, guid: 39d7291811db84da395e856b1a92642f, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -16485,7 +16521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &634501949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23423,11 +23459,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7e70804969472d4dad0e73f0fae150b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -392.624
+      value: -391.68
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7e70804969472d4dad0e73f0fae150b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.497
+      value: 11.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a7e70804969472d4dad0e73f0fae150b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -28119,8 +28155,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hello, I\u2019m Jane, your climate representative. I advocate for sustainable
-    practices and environmental protection."
+  m_text: "Hey there, I\u2019m Jane.\n\nI've heard about the city planning discussions,
+    and I'm deeply invested in ensuring our city's future is sustainable and green.
+    Let's talk about sustainable solutions and protecting our environment."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -28956,7 +28993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1269755199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35797,7 +35834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8784940927085640547, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.257
+      value: 11.34
       objectReference: {fileID: 0}
     - target: {fileID: 8784940927085640547, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -35826,6 +35863,38 @@ PrefabInstance:
     - target: {fileID: 8784940927085640547, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956059728039955753, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956059728039955753, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956059728039955753, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 580167681}
+    - target: {fileID: 8956059728039955753, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956059728039955753, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DisableNpcSpeechBubbleButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956059728039955753, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Round1DecisionPanelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8956059728039955753, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 474031255}
+    - target: {fileID: 8956059728039955753, guid: 6e030e9ff4e9240e69ffc323fc645ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.UI.Button, UnityEngine.UI
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37383,8 +37452,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hi, I\u2019m John, the finance representative. I focus on economic strategies
-    and fiscal responsibility."
+  m_text: "Hello, I\u2019m John. \n\n I understand there are discussions about the
+    city's development, and I believe smart financial planning is key. I'd love to
+    discuss how we can invest in projects that bring long-term prosperity to our
+    community."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -46378,8 +46449,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Greetings, I\u2019m Thomas, the civilian representative. I aim to address
-    social issues and promote community welfare."
+  m_text: "Greetings, I\u2019m Thomas.\n\nWith talks about city planning underway,
+    I'm eager to ensure our community's voice is heard. Let's discuss ways to foster
+    inclusivity, support local initiatives, and create spaces that truly benefit
+    everyone in our city."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -47414,7 +47487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5, y: 56}
+  m_AnchoredPosition: {x: -3.3, y: 56}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969809248
@@ -47474,7 +47547,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -2
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -47500,7 +47573,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 58.83981, y: 0, z: 0, w: 18.721817}
+  m_margin: {x: 58.83981, y: 0, z: 52.583138, w: 18.721817}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -48867,7 +48940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Civilian
+  m_text: Society
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -48904,7 +48977,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -2
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -50722,7 +50795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4580be3a1a1509b4da968fcf3fe2c661, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.24
+      value: 9.969999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4580be3a1a1509b4da968fcf3fe2c661, type: 3}
       propertyPath: m_LocalRotation.w

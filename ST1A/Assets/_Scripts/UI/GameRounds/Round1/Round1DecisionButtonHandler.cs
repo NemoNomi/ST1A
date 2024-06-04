@@ -14,14 +14,15 @@ public class Round1DecisionButtonHandler : MonoBehaviour
         // Add listener to each decision button
         foreach (Button decisionButton in decisionButtons)
         {
-            decisionButton.onClick.AddListener(OnDecisionButtonClicked);
+            decisionButton.onClick.AddListener(() => OnDecisionButtonClicked(decisionButton));
         }
     }
 
-    private void OnDecisionButtonClicked()
+    private void OnDecisionButtonClicked(Button decisionButton)
     {
-        // Disable the NPC speech bubble buttons
-        round1DecisionPanelManager.DisableNpcSpeechBubbleButtons();
+        // Disable the corresponding NPC speech bubble button
+        round1DecisionPanelManager.DisableNpcSpeechBubbleButton(decisionButton);
+
         // Proceed to next round or handle decision
         // Implement the logic for the next round here
     }

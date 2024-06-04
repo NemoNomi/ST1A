@@ -103,12 +103,6 @@ public class Round1DecisionPanelManager : MonoBehaviour
     private void OnStartDiscussionButtonClicked()
     {
         // Deactivate the specified panels
-        foreach (GameObject element in additionalElementsToDeactivate)
-        {
-            element.SetActive(false);
-        }
-
-        // Deactivate specified panels after button click
         foreach (GameObject panel in panelsToDeactivateAfterButtonClick)
         {
             panel.SetActive(false);
@@ -126,7 +120,6 @@ public class Round1DecisionPanelManager : MonoBehaviour
         // Wait for the activation delay
         yield return new WaitForSeconds(activationDelay);
 
-        //
         // Activate the next set of panels
         foreach (GameObject panel in panelsToActivateAfterImmediate)
         {
@@ -150,10 +143,8 @@ public class Round1DecisionPanelManager : MonoBehaviour
         startDiscussionButton.gameObject.SetActive(false);
     }
 
-    public void DisableNpcSpeechBubbleButtons()
+    public void DisableNpcSpeechBubbleButton(Button button)
     {
-        npcSpeechBubbleButton1.gameObject.SetActive(false);
-        npcSpeechBubbleButton2.gameObject.SetActive(false);
-        npcSpeechBubbleButton3.gameObject.SetActive(false);
+        button.gameObject.SetActive(false);
     }
 }
