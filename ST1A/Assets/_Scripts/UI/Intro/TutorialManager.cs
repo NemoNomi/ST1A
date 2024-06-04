@@ -66,12 +66,39 @@ public class TutorialManager : MonoBehaviour
     }
 
     private void SetButtonInteractable(Button button, bool isInteractable)
+{
+    button.interactable = isInteractable;
+    ColorBlock colors = button.colors;
+    colors.disabledColor = disabledColor;
+    button.colors = colors;
+
+    // Change the color of the children elements
+    SetChildrenColor(button.transform, isInteractable ? Color.white : disabledColor);
+}
+
+private void SetChildrenColor(Transform parent, Color color)
+{
+    foreach (Transform child in parent)
     {
-        button.interactable = isInteractable;
-        ColorBlock colors = button.colors;
-        colors.disabledColor = disabledColor;
-        button.colors = colors;
+        Text text = child.GetComponent<Text>();
+        if (text != null)
+        {
+            text.color = color;
+        }
+        Image image = child.GetComponent<Image>();
+        if (image != null)
+        {
+            image.color = color;
+        }
+
+        // Recursively change the color of the children's children
+        if (child.childCount > 0)
+        {
+            SetChildrenColor(child, color);
+        }
     }
+}
+
 
     public void OnIntroCompleted()
     {

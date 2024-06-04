@@ -5,7 +5,8 @@ public class PanelManagerRound3 : MonoBehaviour
 {
     public GameObject[] panelsToDeactivate;
     public Canvas[] canvasesToActivate;
-    public float delayBeforeToggle = 2.0f; // Zeit in Sekunden, die gewartet wird
+    public GameObject[] panelsToActivate;
+    public float delayBeforeToggle = 2.0f;
 
     public void TogglePanels()
     {
@@ -24,6 +25,11 @@ public class PanelManagerRound3 : MonoBehaviour
         foreach (Canvas canvas in canvasesToActivate)
         {
             canvas.gameObject.SetActive(true);
+        }
+
+        foreach (GameObject panel in panelsToActivate)
+        {
+            panel.SetActive(true);
         }
     }
 }

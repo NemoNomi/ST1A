@@ -9,17 +9,29 @@ public class Round1DecisionPanelManager : MonoBehaviour
     public Button npcSpeechBubbleButton2;
     public Button npcSpeechBubbleButton3;
 
-    [Header("Decision Panel to be activated after a delay")]
+    [Header("Panels to Activate After All Bubbles Clicked")]
+    public GameObject[] panelsToActivateAfterBubblesClicked;
+
+    [Header("Panels to Deactivate After Button Click")]
+    public GameObject[] panelsToDeactivateAfterButtonClick;
+
+    [Header("Panels to Activate in Sequence")]
+    public GameObject panelToActivateImmediately;
+    public GameObject[] panelsToActivateAfterImmediate;
+    public GameObject satisfactionCanvasPanel;
     public GameObject decisionPanel;
 
-    [Header("Satisfaction Canvas to be activated after a delay")]
-    public Canvas satisfactionCanvas;
+    [Header("Task Panel to be activated after a delay")]
+    public GameObject taskPanel;
 
     [Header("Additional Elements to Deactivate")]
     public GameObject[] additionalElementsToDeactivate;
 
     [Header("Activation Settings")]
     public float activationDelay = 5.0f;
+
+    [Header("New Button for Starting Discussion")]
+    public Button startDiscussionButton; // Add a new button
 
     private bool button1Clicked = false;
     private bool button2Clicked = false;
@@ -32,7 +44,11 @@ public class Round1DecisionPanelManager : MonoBehaviour
         npcSpeechBubbleButton3.onClick.AddListener(() => OnButtonClick(3));
 
         decisionPanel.SetActive(false);
-        satisfactionCanvas.gameObject.SetActive(false);
+        taskPanel.SetActive(false);
+        satisfactionCanvasPanel.SetActive(false);
+        startDiscussionButton.gameObject.SetActive(false); // Hide the new button initially
+
+        startDiscussionButton.onClick.AddListener(OnStartDiscussionButtonClicked);
     }
 
     private void OnButtonClick(int buttonNumber)
@@ -67,28 +83,63 @@ public class Round1DecisionPanelManager : MonoBehaviour
     {
         if (button1Clicked && button2Clicked && button3Clicked)
         {
-            StartCoroutine(ActivatePanelsAfterDelay(activationDelay));
+            StartCoroutine(ActivatePanelsAndButtonAfterDelay(activationDelay));
         }
     }
 
-    private IEnumerator ActivatePanelsAfterDelay(float delay)
+    private IEnumerator ActivatePanelsAndButtonAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        // Activate decision panel and satisfaction canvas
-        decisionPanel.SetActive(true);
-        satisfactionCanvas.gameObject.SetActive(true);
+        foreach (GameObject panel in panelsToActivateAfterBubblesClicked)
+        {
+            panel.SetActive(true);
+        }
 
-        // Deactivate NPC speech bubble buttons
-        npcSpeechBubbleButton1.gameObject.SetActive(false);
-        npcSpeechBubbleButton2.gameObject.SetActive(false);
-        npcSpeechBubbleButton3.gameObject.SetActive(false);
+        startDiscussionButton.gameObject.SetActive(true); // Activate the new button
+    }
 
-        // Deactivate additional elements
+    private void OnStartDiscussionButtonClicked()
+    {
+        // Deactivate the specified panels
         foreach (GameObject element in additionalElementsToDeactivate)
         {
             element.SetActive(false);
         }
+
+        // Deactivate specified panels after button click
+        foreach (GameObject panel in panelsToDeactivateAfterButtonClick)
+        {
+            panel.SetActive(false);
+        }
+
+        // Activate the panels in sequence
+        StartCoroutine(ActivateDiscussionPanelsInSequence());
+    }
+
+    private IEnumerator ActivateDiscussionPanelsInSequence()
+    {
+        // Activate the panel immediately
+        panelToActivateImmediately.SetActive(true);
+
+        // Wait for the activation delay
+        yield return new WaitForSeconds(activationDelay);
+
+        // Activate the next set of panels
+        foreach (GameObject panel in panelsToActivateAfterImmediate)
+        {
+            panel.SetActive(true);
+        }
+
+        // Wait for the activation delay
+        yield return new WaitForSeconds(activationDelay);
+
+        // Activate the satisfaction canvas and decision panel
+        satisfactionCanvasPanel.SetActive(true);
+        decisionPanel.SetActive(true);
+
+        // Optionally, deactivate the start discussion button
+        startDiscussionButton.gameObject.SetActive(false);
     }
 
     public void DisableNpcSpeechBubbleButtons()
