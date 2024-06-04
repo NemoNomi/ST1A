@@ -22,8 +22,5 @@ public class Round1DecisionButtonHandler : MonoBehaviour
     {
         // Disable the corresponding NPC speech bubble button
         round1DecisionPanelManager.DisableNpcSpeechBubbleButton(decisionButton);
-
-        // Proceed to next round or handle decision
-        // Implement the logic for the next round here
     }
 }

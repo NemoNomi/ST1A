@@ -12,83 +12,64 @@ public class Round1DecisionPanelManager : MonoBehaviour
     [Header("Panels to Activate After All Bubbles Clicked")]
     public GameObject[] panelsToActivateAfterBubblesClicked;
 
-    [Header("Panels to Deactivate After Button Click")]
-    public GameObject[] panelsToDeactivateAfterButtonClick;
+    [Header("Panels to Deactivate After Continue Button Click")]
+    public GameObject[] panelsToDeactivateAfterContinueButtonClick;
 
     [Header("Panels to Activate in Sequence")]
-    public GameObject panelToActivateImmediately;
-    public GameObject[] panelsToActivateAfterImmediate;
-    public GameObject panelToActivateAfterSecondDelay;
-    public GameObject satisfactionCanvasPanel;
-    public GameObject decisionPanel;
-
-    [Header("Task Panel to be activated after a delay")]
-    public GameObject taskPanel;
+    public GameObject[] panelsToActivateInSequence; // Array of panels to activate in sequence
+    public float[] activationDelays; // Array of activation delays for each panel
 
     [Header("Additional Elements to Deactivate")]
     public GameObject[] additionalElementsToDeactivate;
 
     [Header("Activation Settings")]
-    public float activationDelay = 5.0f;
+    public float startDiscussionButtonDelay = 5.0f; // Delay before the start discussion button appears
+    public float satisfactionCanvasActivationDelay = 2.0f; // Delay before the satisfaction canvas appears
+    public float understoodButtonActivationDelay = 1.5f; // Delay before the understood button appears
 
     [Header("New Button for Starting Discussion")]
     public Button startDiscussionButton; // Add a new button
 
-    private bool button1Clicked = false;
-    private bool button2Clicked = false;
-    private bool button3Clicked = false;
+    [Header("New Button for Understood")]
+    public Button understoodButton; // Add a new button
+
+    [Header("Satisfaction Canvas")]
+    public GameObject satisfactionCanvas; // Drag and drop the Satisfaction Canvas GameObject here
+    public GameObject satisfactionPanelChild; // Drag and drop the child panel of Satisfaction Canvas GameObject here
+
+    private bool[] buttonClicked = new bool[3];
 
     private void Start()
     {
-        npcSpeechBubbleButton1.onClick.AddListener(() => OnButtonClick(1));
-        npcSpeechBubbleButton2.onClick.AddListener(() => OnButtonClick(2));
-        npcSpeechBubbleButton3.onClick.AddListener(() => OnButtonClick(3));
+        npcSpeechBubbleButton1.onClick.AddListener(() => OnButtonClick(0));
+        npcSpeechBubbleButton2.onClick.AddListener(() => OnButtonClick(1));
+        npcSpeechBubbleButton3.onClick.AddListener(() => OnButtonClick(2));
 
-        decisionPanel.SetActive(false);
-        taskPanel.SetActive(false);
-        satisfactionCanvasPanel.SetActive(false);
         startDiscussionButton.gameObject.SetActive(false); // Hide the new button initially
+        understoodButton.gameObject.SetActive(false); // Hide the new button initially
 
         startDiscussionButton.onClick.AddListener(OnStartDiscussionButtonClicked);
+        understoodButton.onClick.AddListener(OnUnderstoodButtonClicked);
     }
 
-    private void OnButtonClick(int buttonNumber)
+    private void OnButtonClick(int buttonIndex)
     {
-        switch (buttonNumber)
-        {
-            case 1:
-                if (!button1Clicked)
-                {
-                    button1Clicked = true;
-                    CheckAllButtonsClicked();
-                }
-                break;
-            case 2:
-                if (!button2Clicked)
-                {
-                    button2Clicked = true;
-                    CheckAllButtonsClicked();
-                }
-                break;
-            case 3:
-                if (!button3Clicked)
-                {
-                    button3Clicked = true;
-                    CheckAllButtonsClicked();
-                }
-                break;
-        }
+        buttonClicked[buttonIndex] = true;
+        CheckAllButtonsClicked();
     }
 
     private void CheckAllButtonsClicked()
     {
-        if (button1Clicked && button2Clicked && button3Clicked)
+        foreach (bool clicked in buttonClicked)
         {
-            StartCoroutine(ActivatePanelsAndButtonAfterDelay(activationDelay));
+            if (!clicked)
+                return;
         }
+
+        StartCoroutine(ActivatePanelsAfterDelay(startDiscussionButtonDelay));
     }
 
-    private IEnumerator ActivatePanelsAndButtonAfterDelay(float delay)
+    private IEnumerator ActivatePanelsAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
@@ -103,41 +84,57 @@ public class Round1DecisionPanelManager : MonoBehaviour
     private void OnStartDiscussionButtonClicked()
     {
         // Deactivate the specified panels
-        foreach (GameObject panel in panelsToDeactivateAfterButtonClick)
+        foreach (GameObject panel in panelsToDeactivateAfterContinueButtonClick)
         {
             panel.SetActive(false);
         }
 
-        // Activate the panels in sequence
-        StartCoroutine(ActivateDiscussionPanelsInSequence());
+        StartCoroutine(ActivateSatisfactionCanvasAfterDelay(satisfactionCanvasActivationDelay));
     }
 
-    private IEnumerator ActivateDiscussionPanelsInSequence()
+    private IEnumerator ActivateSatisfactionCanvasAfterDelay(float delay)
     {
-        // Activate the panel immediately
-        panelToActivateImmediately.SetActive(true);
+        yield return new WaitForSeconds(delay);
 
-        // Wait for the activation delay
-        yield return new WaitForSeconds(activationDelay);
+        // Activate the satisfaction canvas
+        satisfactionCanvas.SetActive(true);
 
-        // Activate the next set of panels
-        foreach (GameObject panel in panelsToActivateAfterImmediate)
+        // Activate the understood button after a delay
+        StartCoroutine(ActivateUnderstoodButtonAfterDelay(understoodButtonActivationDelay));
+    }
+
+    private IEnumerator ActivateUnderstoodButtonAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Activate the understood button
+        understoodButton.gameObject.SetActive(true);
+    }
+
+    private void OnUnderstoodButtonClicked()
+    {
+        // Deactivate the satisfaction panel child
+        satisfactionPanelChild.SetActive(false);
+         understoodButton.gameObject.SetActive(false);
+
+        // Activate panels in sequence
+        StartCoroutine(ActivatePanelsInSequence());
+    }
+
+    private IEnumerator ActivatePanelsInSequence()
+    {
+        for (int i = 0; i < panelsToActivateInSequence.Length; i++)
         {
-            panel.SetActive(true);
+            yield return new WaitForSeconds(activationDelays[i]);
+
+            panelsToActivateInSequence[i].SetActive(true);
         }
 
-        // Wait for the activation delay
-        yield return new WaitForSeconds(activationDelay);
-
-        // Activate the additional panel
-        panelToActivateAfterSecondDelay.SetActive(true);
-
-        // Wait for the activation delay
-        yield return new WaitForSeconds(activationDelay);
-
-        // Activate the satisfaction canvas and decision panel
-        satisfactionCanvasPanel.SetActive(true);
-        decisionPanel.SetActive(true);
+        // Deactivate additional elements
+        foreach (GameObject element in additionalElementsToDeactivate)
+        {
+            element.SetActive(false);
+        }
 
         // Optionally, deactivate the start discussion button
         startDiscussionButton.gameObject.SetActive(false);
