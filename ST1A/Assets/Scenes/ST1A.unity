@@ -13956,7 +13956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.79215693, g: 0.92549026, b: 0.3921569, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16962,7 +16962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.14901961, g: 0.7411765, b: 0.8117648, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -18968,10 +18968,14 @@ MonoBehaviour:
   - {fileID: 535343763}
   - {fileID: 1994215153}
   - {fileID: 465349123}
-  color0: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
-  color1_3: {r: 1, g: 0, b: 0, a: 1}
-  color2_3: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  color3_3: {r: 0, g: 1, b: 0, a: 1}
+  color0: {r: 1, g: 0.39607847, b: 0.2901961, a: 1}
+  color1_3: {r: 0.98823535, g: 0.6627451, b: 0.19215688, a: 1}
+  color2_3: {r: 0.98823535, g: 0.8862746, b: 0.09411766, a: 1}
+  color3_3: {r: 0.34117648, g: 0.8078432, b: 0.54901963, a: 1}
+  handleSprite0: {fileID: 21300000, guid: ae4829d69256d714fa74972214bc1245, type: 3}
+  handleSprite1_3: {fileID: 21300000, guid: 21c186d1b8a4c4d4da6d74f9a5eab6f8, type: 3}
+  handleSprite2_3: {fileID: 21300000, guid: b91a1b3a9d11acd4ba22e5726efa74f9, type: 3}
+  handleSprite3_3: {fileID: 21300000, guid: 15f7797adbebc5e46a2236feb7e0e545, type: 3}
 --- !u!4 &775958898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4707772148345687098, guid: d67d53237d6570346b49564a48a5e197, type: 3}
@@ -48593,7 +48597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9921569, g: 0.67058825, b: 0.7058824, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

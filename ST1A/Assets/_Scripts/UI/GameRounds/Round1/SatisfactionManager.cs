@@ -6,12 +6,18 @@ public class SatisfactionManager : MonoBehaviour
 {
     [Header("Satisfaction Sliders")]
     public Slider[] satisfactionSliders;
-    
+
     [Header("Slider Fill Colors")]
     public Color color0 = Color.gray;
     public Color color1_3 = Color.red;
     public Color color2_3 = Color.yellow;
     public Color color3_3 = Color.green;
+
+    [Header("Handle Sprites")]
+    public Sprite handleSprite0;
+    public Sprite handleSprite1_3;
+    public Sprite handleSprite2_3;
+    public Sprite handleSprite3_3;
 
     private float satisfactionDecrement = 1.0f / 3.0f; // One third decrement
     private float fillSpeed = 0.5f; // Speed of the fill animation
@@ -22,7 +28,7 @@ public class SatisfactionManager : MonoBehaviour
         foreach (Slider slider in satisfactionSliders)
         {
             slider.value = 1.0f;
-            UpdateSliderColor(slider);
+            UpdateSliderAppearance(slider);
         }
     }
 
@@ -50,38 +56,43 @@ public class SatisfactionManager : MonoBehaviour
         while (elapsedTime < fillSpeed)
         {
             slider.value = Mathf.Lerp(startValue, targetValue, elapsedTime / fillSpeed);
-            UpdateSliderColor(slider);
+            UpdateSliderAppearance(slider);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
         slider.value = targetValue;
-        UpdateSliderColor(slider);
+        UpdateSliderAppearance(slider);
     }
 
-    private void UpdateSliderColor(Slider slider)
+    private void UpdateSliderAppearance(Slider slider)
     {
         // Find the fill image within the slider
         Image fillImage = slider.fillRect.GetComponentInChildren<Image>();
+        Image handleImage = slider.handleRect.GetComponentInChildren<Image>();
+
         if (slider.value == 0.0f)
         {
             fillImage.color = color0;
+            handleImage.sprite = handleSprite0;
         }
         else if (slider.value <= 1.0f / 3.0f)
         {
             fillImage.color = color1_3;
+            handleImage.sprite = handleSprite1_3;
         }
         else if (slider.value <= 2.0f / 3.0f)
         {
             fillImage.color = color2_3;
+            handleImage.sprite = handleSprite2_3;
         }
         else
         {
             fillImage.color = color3_3;
+            handleImage.sprite = handleSprite3_3;
         }
 
         // Update the handle color to match the fill color
-        Image handleImage = slider.handleRect.GetComponentInChildren<Image>();
         if (handleImage != null)
         {
             handleImage.color = fillImage.color;
