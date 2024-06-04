@@ -8,34 +8,37 @@ public class SatisfactionManager : MonoBehaviour
     public Slider[] satisfactionSliders;
     
     [Header("Slider Fill Colors")]
+    public Color color0 = Color.gray;
     public Color color1_3 = Color.red;
     public Color color2_3 = Color.yellow;
     public Color color3_3 = Color.green;
 
-    private float satisfactionIncrement = 1.0f / 3.0f; // One third increment
+    private float satisfactionDecrement = 1.0f / 3.0f; // One third decrement
     private float fillSpeed = 0.5f; // Speed of the fill animation
 
     private void Start()
     {
-        // Initialize the sliders
+        // Initialize the sliders to full
         foreach (Slider slider in satisfactionSliders)
         {
-            slider.value = 0;
+            slider.value = 1.0f;
             UpdateSliderColor(slider);
         }
     }
 
-    public void IncreaseSatisfaction(int buttonIndex)
+    public void DecreaseSatisfaction(int buttonIndex)
     {
-        // Increment the clicked NPC's satisfaction
-        if (buttonIndex >= 0 && buttonIndex < satisfactionSliders.Length)
+        for (int i = 0; i < satisfactionSliders.Length; i++)
         {
-            float targetValue = satisfactionSliders[buttonIndex].value + satisfactionIncrement;
-            if (targetValue > 1.0f)
+            if (i != buttonIndex)
             {
-                targetValue = 1.0f;
+                float targetValue = satisfactionSliders[i].value - satisfactionDecrement;
+                if (targetValue < 0.0f)
+                {
+                    targetValue = 0.0f;
+                }
+                StartCoroutine(AnimateSliderFill(satisfactionSliders[i], targetValue));
             }
-            StartCoroutine(AnimateSliderFill(satisfactionSliders[buttonIndex], targetValue));
         }
     }
 
@@ -60,7 +63,11 @@ public class SatisfactionManager : MonoBehaviour
     {
         // Find the fill image within the slider
         Image fillImage = slider.fillRect.GetComponentInChildren<Image>();
-        if (slider.value <= 1.0f / 3.0f)
+        if (slider.value == 0.0f)
+        {
+            fillImage.color = color0;
+        }
+        else if (slider.value <= 1.0f / 3.0f)
         {
             fillImage.color = color1_3;
         }
@@ -71,6 +78,13 @@ public class SatisfactionManager : MonoBehaviour
         else
         {
             fillImage.color = color3_3;
+        }
+
+        // Update the handle color to match the fill color
+        Image handleImage = slider.handleRect.GetComponentInChildren<Image>();
+        if (handleImage != null)
+        {
+            handleImage.color = fillImage.color;
         }
     }
 }
