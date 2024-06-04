@@ -18,6 +18,7 @@ public class Round1DecisionPanelManager : MonoBehaviour
     [Header("Panels to Activate in Sequence")]
     public GameObject panelToActivateImmediately;
     public GameObject[] panelsToActivateAfterImmediate;
+    public GameObject panelToActivateAfterSecondDelay;
     public GameObject satisfactionCanvasPanel;
     public GameObject decisionPanel;
 
@@ -125,11 +126,18 @@ public class Round1DecisionPanelManager : MonoBehaviour
         // Wait for the activation delay
         yield return new WaitForSeconds(activationDelay);
 
+        //
         // Activate the next set of panels
         foreach (GameObject panel in panelsToActivateAfterImmediate)
         {
             panel.SetActive(true);
         }
+
+        // Wait for the activation delay
+        yield return new WaitForSeconds(activationDelay);
+
+        // Activate the additional panel
+        panelToActivateAfterSecondDelay.SetActive(true);
 
         // Wait for the activation delay
         yield return new WaitForSeconds(activationDelay);
