@@ -20,7 +20,7 @@ public class SatisfactionManager : MonoBehaviour
     public Sprite handleSprite3_3;
 
     private float satisfactionDecrement = 1.0f / 3.0f; // One third decrement
-    private float fillSpeed = 0.5f; // Speed of the fill animation
+    public float fillSpeed = 0.5f; // Speed of the fill animation
 
     private void Start()
     {
@@ -32,20 +32,29 @@ public class SatisfactionManager : MonoBehaviour
         }
     }
 
-    public void DecreaseSatisfaction(int buttonIndex)
+    public void DecreaseCivilianSatisfaction()
     {
-        for (int i = 0; i < satisfactionSliders.Length; i++)
+        DecreaseSatisfaction(1); 
+    }
+
+    public void DecreaseClimateSatisfaction()
+    {
+        DecreaseSatisfaction(2);
+    }
+
+    public void DecreaseFinanceSatisfaction()
+    {
+        DecreaseSatisfaction(0); 
+    }
+
+    private void DecreaseSatisfaction(int index)
+    {
+        float targetValue = satisfactionSliders[index].value - satisfactionDecrement;
+        if (targetValue < 0.0f)
         {
-            if (i != buttonIndex)
-            {
-                float targetValue = satisfactionSliders[i].value - satisfactionDecrement;
-                if (targetValue < 0.0f)
-                {
-                    targetValue = 0.0f;
-                }
-                StartCoroutine(AnimateSliderFill(satisfactionSliders[i], targetValue));
-            }
+            targetValue = 0.0f;
         }
+        StartCoroutine(AnimateSliderFill(satisfactionSliders[index], targetValue));
     }
 
     private IEnumerator AnimateSliderFill(Slider slider, float targetValue)

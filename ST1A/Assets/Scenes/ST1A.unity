@@ -2748,8 +2748,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseFinanceSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5709,8 +5709,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseClimateSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5859,8 +5859,20 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseClimateSatisfaction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 773076237}
+        m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
+        m_MethodName: DecreaseCivilianSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5924,7 +5936,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &279079500
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5941,7 +5953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &279079501
@@ -5964,7 +5976,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Climate Round 3 Text
+  m_text: While economic growth is important, we must be cautious about the environmental
+    impact of new commercial zones. These developments can lead to increased pollution,
+    loss of green spaces, and higher carbon emissions. We should prioritize sustainable
+    practices and integrate green infrastructure to mitigate these effects.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -5991,8 +6006,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6595,7 +6610,7 @@ MonoBehaviour:
   decisionButton2: {fileID: 1677465321}
   decisionButton3: {fileID: 1398893844}
   decisionPanel: {fileID: 1779613332}
-  activationDelay: 1
+  activationDelay: 2
 --- !u!114 &295521349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6615,6 +6630,7 @@ MonoBehaviour:
   - {fileID: 1779613332}
   canvasesToActivate:
   - {fileID: 342693840}
+  delayBeforeToggle: 2
 --- !u!1 &296026220
 GameObject:
   m_ObjectHideFlags: 0
@@ -7351,7 +7367,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Klima
+  m_text: Climate
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -7527,7 +7543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Finanzen
+  m_text: Finance
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -14077,7 +14093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &577649081
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14235,6 +14251,7 @@ MonoBehaviour:
   - {fileID: 225248564}
   - {fileID: 418378349}
   - {fileID: 609978572}
+  delayBeforeToggle: 2
 --- !u!114 &580167681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14252,7 +14269,7 @@ MonoBehaviour:
   npcSpeechBubbleButton3: {fileID: 474031255}
   decisionPanel: {fileID: 548371737}
   satisfactionCanvas: {fileID: 1988251625}
-  activationDelay: 1
+  activationDelay: 2
 --- !u!1 &586041412
 GameObject:
   m_ObjectHideFlags: 0
@@ -16078,6 +16095,7 @@ MonoBehaviour:
   - {fileID: 1770815546}
   - {fileID: 986364603}
   - {fileID: 795239836}
+  delayBeforeToggle: 2
 --- !u!114 &642501234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16094,7 +16112,7 @@ MonoBehaviour:
   decisionButton2: {fileID: 2135008464}
   decisionButton3: {fileID: 126641432}
   decisionPanel: {fileID: 2077550512}
-  activationDelay: 1
+  activationDelay: 2
 --- !u!1001 &644476619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18976,6 +18994,7 @@ MonoBehaviour:
   handleSprite1_3: {fileID: 21300000, guid: 21c186d1b8a4c4d4da6d74f9a5eab6f8, type: 3}
   handleSprite2_3: {fileID: 21300000, guid: b91a1b3a9d11acd4ba22e5726efa74f9, type: 3}
   handleSprite3_3: {fileID: 21300000, guid: 15f7797adbebc5e46a2236feb7e0e545, type: 3}
+  fillSpeed: 1
 --- !u!4 &775958898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4707772148345687098, guid: d67d53237d6570346b49564a48a5e197, type: 3}
@@ -20393,7 +20412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863471404
@@ -20416,7 +20435,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Civilian Introduction Text
+  m_text: Green spaces are vital for social well-being and community cohesion. They
+    offer recreational areas and promote social interactions. However, we must ensure
+    these projects do not marginalize low-income neighborhoods or divert funds from
+    crucial social programs. Our initiatives must be inclusive and benefit all parts
+    of society, especially the most vulnerable.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -20443,8 +20466,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -26372,7 +26395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1203016474
@@ -26395,7 +26418,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Finance Round 2 Text
+  m_text: I agree that public participation is important. However, we must ensure
+    these processes are efficient and cost-effective. Digital platforms can promote
+    participation while keeping costs low. Well-planned participation can also prevent
+    costly missteps and bring long-term economic benefits.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -26422,8 +26448,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27252,8 +27278,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseClimateSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -31097,12 +31123,24 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseCivilianSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 773076237}
+        m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
+        m_MethodName: DecreaseFinanceSatisfaction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -31255,7 +31293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408449559
@@ -31278,7 +31316,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Climate Round 2 Text
+  m_text: Public participation is vital, but we must ensure environmental perspectives
+    are not overlooked. Local concerns often overshadow broader ecological challenges.
+    We need to inform and engage citizens about long-term environmental goals, ensuring
+    projects are not only responsive to current needs but also sustainable and eco-friendly.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -31305,8 +31346,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33369,7 +33410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1496126550
@@ -33392,7 +33433,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Climate Introduction Text
+  m_text: Urban green spaces play a crucial role in combating the urban heat island
+    effect, which is a major issue in many cities. By expanding parks, implementing
+    green roofs, and creating vertical gardens, we can create a cooler city. These
+    measures not only enhance the well-being of residents but also improve air quality.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -33419,8 +33463,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33455,7 +33499,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -69.70244, w: 0}
+  m_margin: {x: 0, y: 0, z: -69.70244, w: -118.63849}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -37621,8 +37665,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseClimateSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -38054,12 +38098,24 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseCivilianSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 773076237}
+        m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
+        m_MethodName: DecreaseFinanceSatisfaction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -38929,8 +38985,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseClimateSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -40406,7 +40462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1786728307
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40423,7 +40479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1786728308
@@ -40446,7 +40502,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Finance Round 3 Text
+  m_text: Developing new commercial zones is essential for our city's economic growth.
+    It will attract businesses, create jobs, and increase tax revenue. This development
+    is crucial for maintaining and improving public services without raising taxes.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -40473,8 +40531,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -42249,7 +42307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1873821485
@@ -42272,7 +42330,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Finance Introduction Text
+  m_text: While green spaces offer benefits, we must be pragmatic about our budget.
+    Expanding parks and green roofs requires significant investments that could strain
+    our finances. We need to prioritize projects with immediate returns or essential
+    for economic stability. Every dollar spent on green projects is less for essential
+    services and infrastructure.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -42299,8 +42361,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -42335,7 +42397,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -69.70244, w: 0}
+  m_margin: {x: 0, y: 0, z: -69.70244, w: -128.02724}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -45016,7 +45078,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gesellschaft
+  m_text: Civilians
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -45245,7 +45307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1971912355
@@ -45268,7 +45330,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Civilian Round 2 Text
+  m_text: It is crucial to involve citizens in the planning process. Public participation
+    ensures that community needs are considered and increases project acceptance.
+    When people feel their voices are heard, it leads to a stronger identification
+    with their city and higher satisfaction.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -45295,8 +45360,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -45367,7 +45432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1977237913
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45384,7 +45449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -31, y: 0}
+  m_AnchoredPosition: {x: -31, y: 40}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1977237914
@@ -45407,7 +45472,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Civilian Round 3 Text
+  m_text: I agree with the finance representative. New commercial zones can bring
+    significant benefits to our community by providing jobs and enhancing local services.
+    However, we must ensure that these developments include community spaces and
+    consider the needs of local residents.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
   m_sharedMaterial: {fileID: -3510714093700744051, guid: bf6c1f1e7a7aa9b4ba8fbda66340cf8f, type: 2}
@@ -45434,8 +45502,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -49066,8 +49134,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 773076237}
         m_TargetAssemblyTypeName: SatisfactionManager, Assembly-CSharp
-        m_MethodName: DecreaseSatisfaction
-        m_Mode: 3
+        m_MethodName: DecreaseFinanceSatisfaction
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
