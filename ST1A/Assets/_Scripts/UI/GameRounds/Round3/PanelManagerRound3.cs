@@ -6,7 +6,7 @@ public class PanelManagerRound3 : MonoBehaviour
     public GameObject[] panelsToDeactivate;
     public Canvas[] canvasesToActivate;
     public GameObject[] panelsToActivate;
-    public float delayBeforeToggle = 2.0f;
+    public float[] delaysBeforeToggle; // Array of delays before each toggle
 
     public void TogglePanels()
     {
@@ -15,21 +15,26 @@ public class PanelManagerRound3 : MonoBehaviour
 
     private IEnumerator TogglePanelsWithDelay()
     {
-        yield return new WaitForSeconds(delayBeforeToggle);
-
-        foreach (GameObject panel in panelsToDeactivate)
+        // Loop through each delay and toggle accordingly
+        for (int i = 0; i < delaysBeforeToggle.Length; i++)
         {
-            panel.SetActive(false);
-        }
+            float delay = delaysBeforeToggle[i];
+            yield return new WaitForSeconds(delay);
 
-        foreach (Canvas canvas in canvasesToActivate)
-        {
-            canvas.gameObject.SetActive(true);
-        }
+            // Activate specified canvases first
+            foreach (Canvas canvas in canvasesToActivate)
+            {
+                canvas.gameObject.SetActive(true);
+            }
 
-        foreach (GameObject panel in panelsToActivate)
-        {
-            panel.SetActive(true);
+            // Deactivate specified panels
+            foreach (GameObject panel in panelsToDeactivate)
+            {
+                panel.SetActive(false);
+            }
+
+            // Activate specified panels
+            panelsToActivate[i].SetActive(true);
         }
     }
 }

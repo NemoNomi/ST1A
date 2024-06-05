@@ -74,7 +74,7 @@ public class SatisfactionManager : MonoBehaviour
         UpdateSliderAppearance(slider);
     }
 
-    private void UpdateSliderAppearance(Slider slider)
+    public void UpdateSliderAppearance(Slider slider)
     {
         // Find the fill image within the slider
         Image fillImage = slider.fillRect.GetComponentInChildren<Image>();
