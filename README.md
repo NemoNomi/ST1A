@@ -119,10 +119,16 @@ In a virtual representation of Drees & Sommer's office, the player takes on the 
 &ensp;
 
 ## 4. Visual Style
-- **Realistic Office Environment**: A detailed 3D representation of a modern office setting, providing an immersive experience.
-- **Round Table**: The central element symbolizing equality and collaborative discussion among stakeholders.
-- **Representative Avatars**: Distinct and professional appearances for each type of representative, ensuring clear identification.
-- **UI Elements**: Clear and intuitive buttons and indicators for actions and statuses.
+The visual style should reflect the core values and identity of Drees & Sommer. As Urban Integrated Solutions plans for the future, they aim to embody this fundamental principle in their office design. Their offices are open and futuristic, functioning as coworking spaces where team members can collaborate on planning the cities of tomorrow. The integration of numerous plants creates a nature-friendly and pleasant working environment for employees. Large windows allow ample sunlight, creating a warm and bright atmosphere reminiscent of a beloved natural setting.
+
+### a. Office Environment
+Our interactive application aims to replicate the design of an existing Drees & Sommer office. We incorporated the concept of a marketplace with a round table as the central element, symbolizing equality and fostering collaborative discussions among stakeholders. The style is designed to be as realistic as possible, representing Drees & Sommer's forward-thinking mindset.
+
+### b. Representative Avatars
+The representative avatars are created using AI tools to achieve a high level of realism within a short timeframe. Each avatar has a distinct and professional appearance, ensuring clear identification of different representatives.
+
+### c. UI Elements
+The UI elements are designed to complement the office environment. They are clear and intuitive, providing straightforward buttons and indicators for various actions and statuses.
 
 &ensp;
 
